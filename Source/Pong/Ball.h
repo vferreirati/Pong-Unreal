@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Engine/TriggerBox.h"
 #include "Ball.generated.h"
 
 UCLASS()
@@ -24,12 +25,12 @@ protected:
 
 private:	
 	UPROPERTY(EditAnywhere)
-	AActor* EnemyPaddle = nullptr;
-
-	UPROPERTY(EditAnywhere)
-	AActor* PlayerPaddle = nullptr;
-
-	UPROPERTY(EditAnywhere)
 	float Speed = 15;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerBox* PlayerGoal = nullptr;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerBox* EnemyGoal = nullptr;
 	
 };

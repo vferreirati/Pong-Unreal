@@ -16,6 +16,13 @@ void ABall::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	if(!PlayerGoal) {
+		UE_LOG(LogTemp, Error, TEXT("Ball is missing reference to PlayerGoalTrigger"));
+	}
+
+	if(!EnemyGoal) {
+		UE_LOG(LogTemp, Error, TEXT("Ball is missing reference to EnemyGoalTrigger"));
+	}
 }
 
 // Called every frame
@@ -23,5 +30,10 @@ void ABall::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// Right now doesn't matter who wins, the outcome is the same
+	if(IsOverlappingActor(PlayerGoal) || IsOverlappingActor(EnemyGoal)) {
+		Destroy();
+		UE_LOG(LogTemp, Warning, TEXT("Game is finished!"));
+	}
 }
 
