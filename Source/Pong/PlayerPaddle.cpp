@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PlayerPaddle.h"
+#include "Components/InputComponent.h"
 
 
 // Sets default values
@@ -29,6 +30,19 @@ void APlayerPaddle::Tick(float DeltaTime)
 void APlayerPaddle::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis("MoveUp", this, &APlayerPaddle::Move);
+
+}
+
+void APlayerPaddle::Move(float Amount) {
+
+	if(Amount != 0) {
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation.Y += Amount * Speed;
+
+		SetActorLocation(CurrentLocation);
+	}
 
 }
 

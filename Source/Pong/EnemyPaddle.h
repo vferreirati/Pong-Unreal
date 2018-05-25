@@ -24,7 +24,7 @@ protected:
 
 private:	
 	UPROPERTY(EditAnywhere)
-	float Speed = 5;
+	float Speed = 20;
 
 
 	
