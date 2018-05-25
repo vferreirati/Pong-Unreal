@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "EnemyPaddle.generated.h"
+#include "Ball.generated.h"
 
 UCLASS()
-class PONG_API AEnemyPaddle : public AActor
+class PONG_API ABall : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AEnemyPaddle();
+	ABall();
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -24,9 +24,12 @@ protected:
 
 private:	
 	UPROPERTY(EditAnywhere)
+	AActor* EnemyPaddle = nullptr;
+
+	UPROPERTY(EditAnywhere)
+	AActor* PlayerPaddle = nullptr;
+
+	UPROPERTY(EditAnywhere)
 	float Speed = 5;
-
-
-	
 	
 };
