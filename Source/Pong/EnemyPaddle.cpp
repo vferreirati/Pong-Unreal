@@ -25,7 +25,7 @@ void AEnemyPaddle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(Ball) {
+	if(Ball && !Ball->IsActorDestroyed()) {
 		FVector CurrentLocation = GetActorLocation();
 		FVector CurrentBallLocation = Ball->GetActorLocation();
 

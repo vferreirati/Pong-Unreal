@@ -33,7 +33,12 @@ void ABall::Tick(float DeltaTime)
 	// Right now doesn't matter who wins, the outcome is the same
 	if(IsOverlappingActor(PlayerGoal) || IsOverlappingActor(EnemyGoal)) {
 		Destroy();
+		bIsActorDestroyed = true;
 		UE_LOG(LogTemp, Warning, TEXT("Game is finished!"));
 	}
+}
+
+bool ABall::IsActorDestroyed() const {
+	return bIsActorDestroyed;
 }
 

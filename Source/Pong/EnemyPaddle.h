@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Ball.h"
 #include "EnemyPaddle.generated.h"
 
 UCLASS()
@@ -27,7 +28,7 @@ private:
 	float Speed = 20;
 
 	UPROPERTY(EditAnywhere)
-	AActor* Ball = nullptr;
+	ABall* Ball = nullptr;
 
 	void Move(float);
 };
