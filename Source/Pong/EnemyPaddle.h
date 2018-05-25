@@ -26,7 +26,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Speed = 20;
 
+	UPROPERTY(EditAnywhere)
+	AActor* Ball = nullptr;
 
-	
-	
+	void Move(float);
 };
